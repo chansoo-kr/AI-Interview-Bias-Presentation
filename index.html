@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>기계는 무엇을 보았는가 — AI 채용 편향 전시</title>
+<meta name="description" content="AI 인터뷰·서류 심사의 편향을 다룬 3개 전시실. 사례 아카이브, 편향의 발생 원리, 그리고 해결의 설계.">
+<meta property="og:title" content="기계는 무엇을 보았는가">
+<meta property="og:description" content="AI 채용 편향에 관한 인터랙티브 전시">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="is-locked">
+
+<div id="progress"></div>
+
+<!-- ══════════ 입구 ══════════ -->
+<div id="entrance">
+  <div class="ticket">
+    <div class="tk-top"><span>ADMIT ONE</span><span>NO. 2026 · 03</span></div>
+    <div class="sub">특별 기획전</div>
+    <h1>기계는<br>무엇을 보았는가</h1>
+    <p>사람을 고르는 일이 사람의 손을 떠났을 때,<br>무엇이 남고 무엇이 사라졌는지에 관한 세 개의 방.</p>
+    <button class="enter-btn" id="enterBtn">입 장</button>
+    <div class="meta"><span>제1~3전시실</span><span>관람 소요 12분</span><span>사회 · 수행평가</span></div>
+  </div>
+</div>
+
+<!-- ══════════ 안내 레일 ══════════ -->
+<header id="rail">
+  <div class="plaque">기계는 무엇을 보았는가</div>
+  <nav>
+    <a href="#hall" data-nav="hall">서문</a>
+    <a href="#room1" data-nav="room1">제1전시실 · 기록</a>
+    <a href="#room2" data-nav="room2">제2전시실 · 원인</a>
+    <a href="#room3" data-nav="room3">제3전시실 · 처방</a>
+    <a href="#exit" data-nav="exit">나가는 길</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ══════════ 서문 ══════════ -->
+<section id="hall">
+  <div class="hall-grid">
+    <div class="reveal">
+      <span class="room-no">서문 · PROLOGUE</span>
+      <h2>이력서를 넘긴 것은 사람이었고,<br>넘겨받은 것은 <em>기계</em>였다.</h2>
+      <p class="lede">
+        AI 채용은 “사람의 편견을 지운다”는 약속과 함께 도착했다.
+        그러나 기계가 배운 교과서는 결국 <b>우리가 지난 수십 년간 써 온 채용 기록</b>이었다.
+        기계는 편견을 지운 것이 아니라, 편견을 <b>계산 가능한 규칙</b>으로 바꾸어 놓았다.
+      </p>
+      <div class="scroll-cue"><i></i> 아래로 내려 관람을 시작하십시오</div>
+    </div>
+    <aside class="curator reveal">
+      <h3>큐레이터의 말</h3>
+      <p>이 전시는 세 개의 질문을 순서대로 따라갑니다. 각 전시실의 작품은 직접 만져 볼 수 있습니다.</p>
+      <ol>
+        <li>무슨 일이 있었는가<br><span>— 실제로 보도된 사건들의 아카이브</span></li>
+        <li>왜 그런 일이 벌어졌는가<br><span>— 편향된 데이터와, 인과를 잘못 읽는 기계</span></li>
+        <li>무엇을 할 수 있는가<br><span>— 마스킹 · 근거 공개 · 일괄 비교 심사</span></li>
+      </ol>
+    </aside>
+  </div>
+</section>
+
+<!-- ══════════ 제1전시실 ══════════ -->
+<section id="room1">
+  <div class="room-head reveal">
+    <span class="room-no">제 1 전시실</span>
+    <h2>기록의 방 — 실제로 일어난 일들</h2>
+    <p>벽에 걸린 기사를 눌러 전문을 펼쳐 보십시오. 모든 전시물은 실제 보도·판결·연구에 근거하며, 하단에 원문 출처를 함께 전시합니다.</p>
+  </div>
+
+  <div class="wall">
+    <article class="clip lead reveal" data-article="amazon" tabindex="0">
+      <div class="masthead"><span class="name">REUTERS · TECHNOLOGY</span><span class="date">2018.10.10</span></div>
+      <div class="kicker">단독 · 인공지능 채용</div>
+      <h3>아마존, 여성을 걸러내던 AI 채용 도구를 폐기하다</h3>
+      <p class="dek">10년치 이력서로 학습한 실험용 채용 엔진이 ‘여성’이라는 단어가 포함된 이력서를 스스로 감점했다. 기술직 지원자 대부분이 남성이었던 과거의 기록이, 그대로 미래의 기준이 되어 있었다.</p>
+      <div class="more">전문 열람</div><a class="src-line" href="https://www.reuters.com/article/us-amazon-com-jobs-automation-insight-idUSKCN1MK08G" target="_blank" rel="noopener">출처 · Reuters — www.reuters.com ↗</a>
+    </article>
+
+    <article class="clip side reveal" data-article="itutor" tabindex="0">
+      <div class="masthead"><span class="name">U.S. EEOC · 보도자료</span><span class="date">2023.08.09</span></div>
+      <div class="kicker">합의 · 연령 차별</div>
+      <h3>“55세 이상 여성은 자동 탈락” 소프트웨어, 36만 5천 달러 합의</h3>
+      <p class="dek">미국 고용평등위원회가 제기한 첫 AI 채용 차별 소송이 합의로 종결됐다. 200명이 넘는 지원자가 나이만으로 사람의 검토조차 받지 못했다.</p>
+      <div class="more">전문 열람</div><a class="src-line" href="https://www.eeoc.gov/newsroom/itutorgroup-pay-365000-settle-eeoc-discriminatory-hiring-suit" target="_blank" rel="noopener">출처 · EEOC 보도자료 — www.eeoc.gov ↗</a>
+    </article>
+
+    <article class="clip third reveal" data-article="hirevue" tabindex="0">
+      <div class="masthead"><span class="name">WIRED</span><span class="date">2021.01.12</span></div>
+      <div class="kicker">화상면접</div>
+      <h3>표정을 채점하던 면접 AI, 얼굴 분석을 중단하다</h3>
+      <p class="dek">지원자의 표정·시선을 점수화하던 기능이 “설명할 수 없고 근거가 약하다”는 비판 끝에 폐기됐다.</p>
+      <div class="more">전문 열람</div><a class="src-line" href="https://www.wired.com/story/job-screening-service-halts-facial-analysis-applicants/" target="_blank" rel="noopener">출처 · WIRED — www.wired.com ↗</a>
+    </article>
+
+    <article class="clip third reveal" data-article="uw" tabindex="0">
+      <div class="masthead"><span class="name">UNIVERSITY OF WASHINGTON</span><span class="date">2024.10.31</span></div>
+      <div class="kicker">연구</div>
+      <h3>같은 이력서, 이름만 바꾸자 순위가 갈렸다</h3>
+      <p class="dek">550여 건의 이력서를 이름만 바꿔 대규모 언어모델에 넣은 실험. 결과는 특정 집단으로 크게 기울었다.</p>
+      <div class="more">전문 열람</div><a class="src-line" href="https://www.washington.edu/news/2024/10/31/ai-bias-resume-screening-race-gender/" target="_blank" rel="noopener">출처 · UW News — www.washington.edu ↗</a>
+    </article>
+
+    <article class="clip third reveal" data-article="workday" tabindex="0">
+      <div class="masthead"><span class="name">REUTERS · LEGAL</span><span class="date">2025.05</span></div>
+      <div class="kicker">소송</div>
+      <h3>지원 100번, 탈락 100번 — 심사 알고리즘이 법정에 서다</h3>
+      <p class="dek">채용 심사 소프트웨어 제공사를 상대로 한 연령차별 집단소송이 전국 규모로 진행될 수 있게 됐다.</p>
+      <div class="more">전문 열람</div><a class="src-line" href="https://www.reuters.com/legal/litigation/workday-must-face-novel-bias-lawsuit-over-ai-screening-software-2024-07-15/" target="_blank" rel="noopener">출처 · Reuters — www.reuters.com ↗</a>
+    </article>
+
+    <div class="briefs reveal">
+      <h4>전시 보조 자료 · 무엇이 반복되는가</h4>
+      <ul>
+        <li><b>① 과거가 기준이 된다</b>과거 합격자 분포가 곧 ‘좋은 지원자’의 정의로 굳어진다.<cite>아마존 · 2018</cite></li>
+        <li><b>② 사람이 개입할 틈이 없다</b>자동 탈락은 기록도 설명도 남기지 않는다.<cite>iTutorGroup · 2023</cite></li>
+        <li><b>③ 근거가 없다</b>표정·목소리처럼 직무와의 연결이 입증되지 않은 신호가 점수가 된다.<cite>HireVue · 2021</cite></li>
+        <li><b>④ 이름 한 줄로 갈린다</b>능력과 무관한 식별 정보가 결과를 흔든다.<cite>워싱턴대 · 2024</cite></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 제2전시실 ══════════ -->
+<section id="room2">
+  <div class="room-head reveal">
+    <span class="room-no">제 2 전시실</span>
+    <h2>기계의 방 — 편향은 어디서 태어나는가</h2>
+    <p>두 가지 장치를 전시합니다. 하나는 <b>기계가 삼킨 과거</b>이고, 다른 하나는 <b>기계가 잘못 그은 인과의 화살표</b>입니다. 직접 조작해 보십시오.</p>
+  </div>
+
+  <!-- 전시물 2-1 -->
+  <div class="exhibit reveal">
+    <div class="ex-no">전시물 2 — 1</div>
+    <h3>삼켜진 과거 : 학습 데이터가 편향되어 있을 때</h3>
+    <p>AI는 “좋은 인재”가 무엇인지 스스로 알지 못합니다. 오직 <b>과거에 실제로 합격한 사람들</b>을 보고 그 특징을 흉내 낼 뿐입니다. 과거 합격자가 한쪽으로 기울어 있었다면, 기계는 그 기울기를 <b>더 가파르게</b> 재현합니다.</p>
+
+    <div class="slider-box">
+      <div class="slider-panel">
+        <div class="k">학습 데이터 · 과거 10년 합격자 중 남성 비율</div>
+        <div class="v" id="dataVal">85<small>%</small></div>
+        <input type="range" id="ratio" min="50" max="95" value="85" step="1" aria-label="과거 합격자 중 남성 비율">
+        <div class="hint">손잡이를 움직여 과거 채용 기록을 바꿔 보십시오. 오른쪽에서 AI의 추천 결과가 어떻게 달라지는지 관찰할 수 있습니다.</div>
+      </div>
+
+      <div>
+        <div class="bars">
+          <div class="bar-unit">
+            <div class="cap">투입 · <span>기계가 학습한 과거</span></div>
+            <div class="bar-row">
+              <div class="t"><span>남성</span><b id="inM">85%</b></div>
+              <div class="track"><div class="fill m" id="barInM" style="width:85%"></div></div>
+            </div>
+            <div class="bar-row">
+              <div class="t"><span>여성</span><b id="inF">15%</b></div>
+              <div class="track"><div class="fill f" id="barInF" style="width:15%"></div></div>
+            </div>
+          </div>
+          <div class="bar-unit">
+            <div class="cap">산출 · <span>AI가 추천한 상위 100명</span></div>
+            <div class="bar-row">
+              <div class="t"><span>남성</span><b id="outM">95%</b></div>
+              <div class="track"><div class="fill m" id="barOutM" style="width:95%"></div></div>
+            </div>
+            <div class="bar-row">
+              <div class="t"><span>여성</span><b id="outF">5%</b></div>
+              <div class="track"><div class="fill f" id="barOutF" style="width:5%"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="verdict">
+          <span class="amp" id="ampTag">편향 증폭 × 1.0</span>
+          <span id="verdictTxt">기계는 과거의 기울기를 그대로 물려받지 않습니다. 다수 패턴을 ‘정답’으로 굳히면서 더 강하게 기울입니다.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="phrases">
+      <div class="phrase"><div class="q">“여성 체스 동아리 회장”</div><div class="s">▼ 감점 — 과거 합격자에게 드문 표현</div></div>
+      <div class="phrase"><div class="q">“여자대학교 졸업”</div><div class="s">▼ 감점 — 학교명이 성별의 대리 신호가 됨</div></div>
+      <div class="phrase up"><div class="q">“실행했다 · 장악했다”</div><div class="s">▲ 가점 — 과거 남성 이력서에 잦던 동사</div></div>
+      <div class="phrase"><div class="q">경력 단절 2년</div><div class="s">▼ 감점 — 사유(육아·간병)는 보지 않음</div></div>
+    </div>
+    <div class="label"><b>전시 라벨</b>
+      좌측 시뮬레이션은 편향 증폭(bias amplification) 현상을 설명하기 위한 모형이며 특정 기업의 실측치가 아닙니다.<br>
+      우측 문구 사례는 로이터(2018)가 보도한 아마존 채용 엔진의 실제 감점 사례에 기반합니다.
+    </div>
+  </div>
+
+  <!-- 전시물 2-2 -->
+  <div class="exhibit reveal">
+    <div class="ex-no">전시물 2 — 2</div>
+    <h3>잘못 그은 화살표 : 상관을 인과로 착각할 때</h3>
+    <p>AI는 “무엇이 성과를 <b>만드는가</b>”를 모릅니다. 오직 “무엇이 합격과 <b>함께 나타나는가</b>”만 셉니다. 그래서 실력의 결과일 뿐인 신호, 심지어 실력과 아무 상관 없는 신호까지 <b>합격의 원인</b>으로 취급합니다.</p>
+
+    <div class="controls">
+      <div class="seg">
+        <button id="btnReal" class="on">실제 세계의 인과</button>
+        <button id="btnAI">AI가 학습한 상관</button>
+      </div>
+      <span style="font-family:var(--sans);font-size:11px;letter-spacing:.1em;color:var(--ink-3)">노드를 눌러 자세히 보기</span>
+    </div>
+
+    <div class="graph-wrap">
+      <svg viewBox="0 0 820 360" role="img" aria-label="채용에서의 인과관계와 상관관계 비교 도식">
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="rgba(189,180,156,.55)"/></marker>
+          <marker id="ah-r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#a63a24"/></marker>
+          <marker id="ah-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#5f9dc4"/></marker>
+        </defs>
+
+        <!-- 좌측 변수 -->
+        <g class="node pick clickable" data-node="name"><rect x="24" y="18" width="176" height="50" rx="2"/><text x="112" y="44">이름 · 성별</text></g>
+        <g class="node pick clickable" data-node="addr"><rect x="24" y="86" width="176" height="50" rx="2"/><text x="112" y="112">거주지</text></g>
+        <g class="node pick clickable" data-node="school"><rect x="24" y="154" width="176" height="50" rx="2"/><text x="112" y="180">출신 학교</text></g>
+        <g class="node skill clickable" data-node="skill"><rect x="24" y="266" width="176" height="50" rx="2"/><text x="112" y="292">직무 역량 · 기술</text></g>
+
+        <!-- 실제 세계 -->
+        <g class="gmode on" id="gReal">
+          <path class="edge weak" d="M200,43 C250,43 260,110 300,116"/>
+          <path class="edge weak" d="M200,111 H300"/>
+          <path class="edge weak" d="M200,179 C250,179 260,125 300,120"/>
+          <g class="node"><rect x="300" y="88" width="210" height="58" rx="2"/><text x="405" y="110">과거 인사담당자의</text><text x="405" y="130">주관적 선호 · 편견</text></g>
+          <path class="edge true" d="M200,291 H300"/>
+          <g class="node skill"><rect x="300" y="266" width="210" height="50" rx="2"/><text x="405" y="292">실제 업무 성과</text></g>
+          <path class="edge bias" d="M510,117 C560,117 570,175 610,190"/>
+          <path class="edge true" d="M510,291 C560,291 570,235 610,215"/>
+          <g class="node out"><rect x="610" y="176" width="186" height="58" rx="2"/><text x="703" y="198">과거 합격 기록</text><text x="703" y="218">( 학습용 정답지 )</text></g>
+          <text class="elab r" x="560" y="140">편견의 몫</text>
+          <text class="elab" x="560" y="270">실력의 몫</text>
+          <text class="elab" x="410" y="345">합격 기록은 실력과 편견이 뒤섞인 결과물이다</text>
+        </g>
+
+        <!-- AI가 본 세계 -->
+        <g class="gmode" id="gAI">
+          <path class="edge bias" d="M200,43 C380,43 430,120 610,178"/>
+          <path class="edge bias" d="M200,111 C380,111 430,150 610,192"/>
+          <path class="edge bias" d="M200,179 C380,179 430,180 610,200"/>
+          <path class="edge weak" d="M200,291 C380,291 430,250 610,222"/>
+          <g class="node out"><rect x="610" y="164" width="186" height="72" rx="2"/><text x="703" y="188">AI 합격 예측 점수</text><text x="703" y="212">( 상관만으로 학습 )</text></g>
+          <text class="elab r" x="400" y="72">상관 .58</text>
+          <text class="elab r" x="400" y="130">상관 .51</text>
+          <text class="elab r" x="400" y="196">상관 .63</text>
+          <text class="elab" x="400" y="278">상관 .31</text>
+          <text class="elab" x="410" y="345">기계는 인과를 모른 채, 가장 잘 맞아떨어지는 신호부터 붙잡는다</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="readout" id="readout">
+      <div class="rk">해설</div>
+      <h4>두 개의 세계를 비교해 보십시오</h4>
+      <p>위 버튼으로 시점을 바꾸고, 왼쪽 변수 상자를 누르면 각 변수가 왜 위험한지 볼 수 있습니다.</p>
+    </div>
+    <div class="label"><b>전시 라벨</b>
+      도식의 상관계수는 설명을 위한 예시값입니다. 핵심은 수치가 아니라 화살표의 방향입니다 —
+      <strong>실제 세계</strong>에서는 편견이 ‘합격 기록’을 만들고, <strong>AI</strong>는 그 기록을 정답으로 삼아 편견을 되풀이합니다.
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 제3전시실 ══════════ -->
+<section id="room3">
+  <div class="room-head reveal">
+    <span class="room-no">제 3 전시실</span>
+    <h2>처방의 방 — 무엇을 바꿀 수 있는가</h2>
+    <p>편향은 기계의 고장이 아니라 <b>설계의 문제</b>입니다. 설계를 바꾸는 두 가지 장치를 전시합니다. 첫째, 보지 않아야 할 것을 <b>가린다</b>. 둘째, 판단한 이유를 <b>반드시 남긴다</b>. 셋째, 지원서를 <b>한 번에 놓고 비교한다</b>.</p>
+  </div>
+
+  <!-- 전시물 3-1 -->
+  <div class="exhibit reveal">
+    <div class="ex-no">전시물 3 — 1</div>
+    <h3>가림막 : 인적사항 마스킹 실험대</h3>
+    <p>오른쪽 버튼을 눌러 이력서의 항목을 하나씩 가려 보십시오. 무엇을 가릴 때 편향 위험이 실제로 떨어지는지, 그리고 <b>가려도 남는 것</b>이 무엇인지 확인할 수 있습니다.</p>
+
+    <div class="mask-lab">
+      <div class="resume" id="resume">
+        <div class="rh"><b>지원서 #A-2291</b><span>블라인드 심사 대상</span></div>
+        <div class="fld" data-f="name"><div class="fk">성명</div><div class="fv">김○○</div></div>
+        <div class="fld" data-f="gender"><div class="fk">성별</div><div class="fv">여성</div></div>
+        <div class="fld" data-f="age"><div class="fk">생년</div><div class="fv">1994년생 (32세)</div></div>
+        <div class="fld" data-f="photo"><div class="fk">사진</div><div class="fv">증명사진 첨부됨</div></div>
+        <div class="fld" data-f="addr"><div class="fk">주소</div><div class="fv">경기 ○○시 ○○동</div></div>
+        <div class="fld" data-f="school"><div class="fk">학력</div><div class="fv">○○대학교 컴퓨터공학</div></div>
+        <div class="fld job"><div class="fk">경력</div><div class="fv">백엔드 개발 4년 2개월</div></div>
+        <div class="fld job"><div class="fk">프로젝트</div><div class="fv">결제 서버 이중화 설계, 장애율 1.9% → 0.3%</div></div>
+        <div class="fld job"><div class="fk">기술</div><div class="fv">Java · Kotlin · Kubernetes · PostgreSQL</div></div>
+        <div class="fld job"><div class="fk">자격</div><div class="fv">정보처리기사, AWS SAA</div></div>
+      </div>
+
+      <div class="panel">
+        <h4>가림막 조작반</h4>
+        <div class="toggles" id="toggles">
+          <button class="tg" data-t="name">성명</button>
+          <button class="tg" data-t="gender">성별</button>
+          <button class="tg" data-t="age">나이</button>
+          <button class="tg" data-t="photo">사진</button>
+          <button class="tg" data-t="addr">주소</button>
+          <button class="tg" data-t="school">출신 학교</button>
+        </div>
+        <button class="mask-all" id="maskAll">전부 가리기</button>
+
+        <div class="meter">
+          <div class="mt"><span>편향 위험도</span><b id="riskV">100</b></div>
+          <div class="mtrack"><div class="mfill" id="riskBar" style="width:100%;background:#a63a24"></div></div>
+        </div>
+        <div class="meter">
+          <div class="mt"><span>판단 근거 중 직무 정보의 비중</span><b id="relV">48%</b></div>
+          <div class="mtrack"><div class="mfill" id="relBar" style="width:48%;background:#2f5d55"></div></div>
+        </div>
+
+        <div class="note" id="maskNote">
+          <b>아직 기계는 사람을 보고 있습니다.</b> 성별·나이·사진처럼 직무 수행과 무관한 정보가 그대로 모델에 들어가면, 그 정보는 반드시 점수에 반영됩니다.
+        </div>
+      </div>
+    </div>
+    <div class="label"><b>전시 라벨</b>
+      마스킹은 만능이 아닙니다. 이름을 가려도 <strong>동아리명·군복무 여부·경력 공백</strong>이 성별을 알려주고, 주소를 가려도 <strong>고등학교명</strong>이 지역을 알려줍니다.
+      그래서 마스킹은 ‘대리 신호(proxy) 점검’과 반드시 함께 가야 합니다.
+    </div>
+  </div>
+
+  <!-- 전시물 3-2 -->
+  <div class="exhibit reveal">
+    <div class="ex-no">전시물 3 — 2</div>
+    <h3>이유를 남기는 심사 : 판단 근거의 의무 표시</h3>
+    <p>같은 지원자에 대한 두 장의 심사표입니다. 왼쪽은 오늘날 대부분의 방식, 오른쪽은 <b>모든 판단에 근거를 붙인</b> 방식입니다. 오른쪽 카드의 버튼을 눌러 근거를 펼쳐 보십시오.</p>
+
+    <div class="reason-grid">
+      <div class="card bad">
+        <div class="ch">현재 · 설명하지 않는 심사</div>
+        <h4>지원서 #A-2291</h4>
+        <div class="res">판정 <b>불합격</b> · 적합도 <b>41점</b></div>
+        <div class="blackbox">근거 정보 없음<br>( BLACK BOX )</div>
+        <ul class="ev" style="margin-top:18px">
+          <li><span class="mk no">불가</span><div>지원자는 왜 떨어졌는지 알 수 없다<em>이의를 제기할 근거 자체가 존재하지 않음</em></div></li>
+          <li><span class="mk no">불가</span><div>회사도 차별 여부를 검증할 수 없다<em>기록이 없으므로 사후 감사도 불가능</em></div></li>
+        </ul>
+      </div>
+
+      <div class="card good">
+        <div class="ch">대안 · 근거를 남기는 심사</div>
+        <h4>지원서 #A-2291</h4>
+        <div class="res">판정 <b>2차 전형 진행</b> · 적합도 <b>78점</b></div>
+        <div id="reasonBox">
+          <div class="blackbox" id="reasonHidden">근거는 지원자에게 공개될 수 있습니다</div>
+          <ul class="ev" id="reasonList" hidden>
+            <li><span class="mk ok">근거</span><div>결제 서버 이중화 경험 → 공고 요건 2항 ‘고가용성 설계’ 직접 충족<em>가중치 +26 · 프로젝트 기술서 3면</em></div></li>
+            <li><span class="mk ok">근거</span><div>Kubernetes 운영 4년 → 요건 1항 충족<em>가중치 +24 · 경력기술서 검증됨</em></div></li>
+            <li><span class="mk ok">근거</span><div>장애율 1.9%→0.3% 정량 성과<em>가중치 +18 · 재직 증명 자료로 확인</em></div></li>
+            <li><span class="mk no">차단</span><div>‘경력 공백 2년’ 감점 시도 → <b>사유 미확인 항목으로 자동 무효화</b><em>사유 소명 기회 부여 후에만 반영 가능</em></div></li>
+            <li><span class="mk no">차단</span><div>‘출신 학교 등급’ 신호 → <b>직무 연관성 미입증으로 사용 금지</b><em>감사 로그에 시도 기록 저장</em></div></li>
+          </ul>
+        </div>
+        <button class="reveal-btn" id="reasonBtn">판정 근거 열람하기</button>
+      </div>
+    </div>
+
+
+  <!-- 전시물 3-3 -->
+  <div class="exhibit reveal">
+    <div class="ex-no">전시물 3 — 3</div>
+    <h3>한 번에 놓고 비교하기 : 일괄 심사로 기준을 고정한다</h3>
+    <p>지원서를 <b>한 명씩 따로</b> 넣으면, 모델은 매번 기준선을 새로 세웁니다. 그 빈틈을 이름·나이·학교 같은 신호가 채웁니다. 같은 지원서들을 <b>하나의 요청에 모두 넣고 서로 비교하게</b> 하면, 모든 지원자에게 동일한 잣대가 강제됩니다. 아래 버튼으로 두 방식을 비교해 보십시오.</p>
+
+    <div class="controls">
+      <div class="seg">
+        <button id="btnOne" class="on">한 명씩 따로 심사</button>
+        <button id="btnBatch">네 명을 한 번에 비교</button>
+      </div>
+      <span style="font-family:var(--sans);font-size:11px;letter-spacing:.1em;color:var(--ink-3)">동일한 지원서 4건 · 동일한 채용 공고</span>
+    </div>
+
+    <div class="batch-lab">
+      <div>
+        <div class="prompt-view" id="promptView"></div>
+        <ol class="cand-list" id="candList"></ol>
+      </div>
+      <div class="panel">
+        <h4>심사 계측</h4>
+        <div class="meter">
+          <div class="mt"><span>심사 기준선의 흔들림</span><b id="driftV">±14점</b></div>
+          <div class="mtrack"><div class="mfill" id="driftBar" style="width:78%;background:#a63a24"></div></div>
+        </div>
+        <div class="meter">
+          <div class="mt"><span>직무 근거와 최종 순위의 일치도</span><b id="matchV">35%</b></div>
+          <div class="mtrack"><div class="mfill" id="matchBar" style="width:35%;background:#b08d4f"></div></div>
+        </div>
+        <div class="note" id="batchNote"></div>
+      </div>
+    </div>
+
+    <div class="label"><b>전시 라벨 · 주의</b>
+      일괄 비교에도 약점이 있습니다. 앞쪽에 놓인 지원서가 유리해지는 <strong>순서 편향(position bias)</strong>이 남고, 한 번에 넣을 수 있는 인원에도 한계가 있습니다.
+      그래서 실제 운용에서는 <strong>① 지원서 순서를 무작위로 섞어 여러 번 돌리고 ② 결과를 평균 내며 ③ 가림막·근거 기록과 반드시 함께</strong> 씁니다.
+      이 전시의 점수는 방식의 차이를 보여 주기 위한 예시값입니다.
+    </div>
+  </div>
+
+    <div class="principles">
+      <div class="pr"><div class="n">원칙 01</div><h5>가린다</h5><p>성명·성별·나이·사진·주소·학교 등 직무와 무관한 식별 정보를 모델 입력 단계에서 제거하고, 이를 추측하게 하는 대리 신호까지 함께 점검한다.</p></div>
+      <div class="pr"><div class="n">원칙 02</div><h5>이유를 남긴다</h5><p>모든 판정에 채용 공고의 어떤 요건을 근거로 삼았는지 항목별로 기록하고, 지원자가 요청하면 열람·이의제기할 수 있게 한다.</p></div>
+      <div class="pr"><div class="n">원칙 03</div><h5>정기적으로 검사한다</h5><p>합격률을 성별·연령·지역별로 나눠 정기 감사하고, 편차가 기준을 넘으면 모델 사용을 중단한다.</p></div>
+      <div class="pr"><div class="n">원칙 04</div><h5>한 번에 비교한다</h5><p>지원서를 한 명씩 따로 평가하지 않고 하나의 요청에 함께 넣어 동일한 기준으로 비교한다. 순서를 섞어 여러 번 돌린 뒤 평균을 낸다.</p></div>
+      <div class="pr"><div class="n">원칙 05</div><h5>최종 결정은 사람이 한다</h5><p>AI는 순위를 제안할 뿐, 탈락을 자동으로 확정하지 않는다. 사람의 검토 없는 자동 탈락을 금지한다.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 나가는 길 ══════════ -->
+<section id="exit">
+  <div class="room-head reveal">
+    <span class="room-no">나가는 길 · EPILOGUE</span>
+    <h2>기계는 미래를 예측하지 않는다. 과거를 반복할 뿐이다.</h2>
+  </div>
+  <div class="exit-lines reveal">
+    <p>① AI 채용 편향은 기계의 오작동이 아니라, <span>기울어진 과거를 그대로 배운 결과</span>다.</p>
+    <p>② 기계는 인과를 모른다. 실력이 아니라 <span>실력과 함께 나타났던 표식</span>을 고른다.</p>
+    <p>③ 그러므로 답은 기술이 아니라 설계다 — <span>가리고, 한 번에 비교하고, 이유를 남기고, 사람이 확인한다.</span></p>
+  </div>
+  <div class="refs reveal">
+    <h4>출처 및 참고자료</h4>
+    <ol>
+      <li>Jeffrey Dastin, “Amazon scraps secret AI recruiting tool that showed bias against women”, <i>Reuters</i>, 2018.10.10 — <a href="https://www.reuters.com/article/us-amazon-com-jobs-automation-insight-idUSKCN1MK08G" target="_blank" rel="noopener">reuters.com</a></li>
+      <li>U.S. EEOC, “iTutorGroup to Pay $365,000 to Settle EEOC Discriminatory Hiring Suit”, 2023.08.09 — <a href="https://www.eeoc.gov/newsroom/itutorgroup-pay-365000-settle-eeoc-discriminatory-hiring-suit" target="_blank" rel="noopener">eeoc.gov</a></li>
+      <li>Will Knight, “Job Screening Service Halts Facial Analysis of Applicants”, <i>WIRED</i>, 2021.01.12 — <a href="https://www.wired.com/story/job-screening-service-halts-facial-analysis-applicants/" target="_blank" rel="noopener">wired.com</a></li>
+      <li>EPIC, “In re HireVue” FTC 진정, 2019.11.06 — <a href="https://epic.org/documents/in-re-hirevue/" target="_blank" rel="noopener">epic.org</a></li>
+      <li>Stefan Milne, “AI tools show biases in ranking job applicants’ names according to perceived race and gender”, <i>UW News</i>, 2024.10.31 (Wilson &amp; Caliskan, AIES 2024) — <a href="https://www.washington.edu/news/2024/10/31/ai-bias-resume-screening-race-gender/" target="_blank" rel="noopener">washington.edu</a></li>
+      <li><i>Mobley v. Workday, Inc.</i>, N.D. Cal. — AI 채용 심사 관련 연령차별 집단소송 진행 경과 보도, <i>Reuters</i> — <a href="https://www.reuters.com/legal/litigation/workday-must-face-novel-bias-lawsuit-over-ai-screening-software-2024-07-15/" target="_blank" rel="noopener">reuters.com</a></li>
+      <li>EEOC, “Assessing Adverse Impact in Software, Algorithms, and AI Used in Employment Selection Procedures Under Title VII”, 2023.05.18 — <a href="https://www.eeoc.gov/laws/guidance/select-issues-assessing-adverse-impact-software-algorithms-and-artificial" target="_blank" rel="noopener">eeoc.gov</a></li>
+      <li>EU 인공지능법(Regulation (EU) 2024/1689) — 채용·인사 목적 AI를 고위험(High-risk)으로 분류, 부속서 III — <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener">eur-lex.europa.eu</a></li>
+      <li>NYC Local Law 144 (2021) — 자동화 고용 결정 도구의 편향 감사 의무화, 2023.07 시행 — <a href="https://www.nyc.gov/site/dca/about/automated-employment-decision-tools.page" target="_blank" rel="noopener">nyc.gov</a></li>
+    </ol>
+  </div>
+</section>
+</main>
+
+<footer>
+  <span>기계는 무엇을 보았는가 · AI 채용 편향 특별전</span>
+  <span>사회과 수행평가 · 2026</span>
+</footer>
+
+<!-- ══════════ 기사 전문 모달 ══════════ -->
+<div id="modal" role="dialog" aria-modal="true" aria-label="기사 전문">
+  <article class="paper" id="paperBody"></article>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

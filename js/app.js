@@ -207,13 +207,14 @@
      --------------------------------------------------------- */
   var ratio = $('#ratio');
 
-  function amplify(p) {
-    // 다수 패턴을 '정답'으로 굳히는 경향: 다수/소수의 승산비를 1.6제곱으로 키운다.
-    if (p <= 0) return 0;
-    if (p >= 100) return 100;
-    var odds = Math.pow(p / (100 - p), 1.6);
-    return 100 * odds / (odds + 1);
-  }
+   function amplify(p) {
+      if (p <= 0) return 0;
+      if (p >= 100) return 100;
+      var x = (p - 50) / 50;
+      var amplified = Math.sign(x) * Math.pow(Math.abs(x), 1.6);
+
+      return 50 + amplified * 50;
+   }
 
   function updateSim() {
     var p = +ratio.value, q = amplify(p);

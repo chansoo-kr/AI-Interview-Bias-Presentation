@@ -35,7 +35,7 @@
     <a href="#hall" data-nav="hall">서문</a>
     <a href="#room1" data-nav="room1">제1전시실 · 기록</a>
     <a href="#room2" data-nav="room2">제2전시실 · 원인</a>
-    <a href="#room3" data-nav="room3">제3전시실 · 처방</a>
+    <a href="#room3" data-nav="room3">제3전시실 · 해결</a>
     <a href="#exit" data-nav="exit">나가는 길</a>
   </nav>
 </header>
@@ -56,7 +56,7 @@
       <div class="scroll-cue"><i></i> 아래로 내려 관람을 시작하십시오</div>
     </div>
     <aside class="curator reveal">
-      <h3>큐레이터의 말</h3>
+      <h3>목차</h3>
       <p>이 전시는 세 개의 질문을 순서대로 따라갑니다. 각 전시실의 작품은 직접 만져 볼 수 있습니다.</p>
       <ol>
         <li>무슨 일이 있었는가<br><span>— 실제로 보도된 사건들의 아카이브</span></li>
@@ -72,7 +72,7 @@
   <div class="room-head reveal">
     <span class="room-no">제 1 전시실</span>
     <h2>기록의 방 — 실제로 일어난 일들</h2>
-    <p>벽에 걸린 기사를 눌러 전문을 펼쳐 보십시오. 모든 전시물은 실제 보도·판결·연구에 근거하며, 하단에 원문 출처를 함께 전시합니다.</p>
+    <p>벽에 걸린 기사를 눌러 전문을 펼쳐 보십시오.</p>
   </div>
 
   <div class="wall">
@@ -87,7 +87,7 @@
     <article class="clip side reveal" data-article="itutor" tabindex="0">
       <div class="masthead"><span class="name">U.S. EEOC · 보도자료</span><span class="date">2023.08.09</span></div>
       <div class="kicker">합의 · 연령 차별</div>
-      <h3>“55세 이상 여성은 자동 탈락” 소프트웨어, 36만 5천 달러 합의</h3>
+      <h3>“55세 이상 여성, 60세 이상 남성은 자동 탈락” 소프트웨어, 36만 5천 달러 합의</h3>
       <p class="dek">미국 고용평등위원회가 제기한 첫 AI 채용 차별 소송이 합의로 종결됐다. 200명이 넘는 지원자가 나이만으로 사람의 검토조차 받지 못했다.</p>
       <div class="more">전문 열람</div><a class="src-line" href="https://www.eeoc.gov/newsroom/itutorgroup-pay-365000-settle-eeoc-discriminatory-hiring-suit" target="_blank" rel="noopener">출처 · EEOC 보도자료 — www.eeoc.gov ↗</a>
     </article>
@@ -133,7 +133,7 @@
   <div class="room-head reveal">
     <span class="room-no">제 2 전시실</span>
     <h2>기계의 방 — 편향은 어디서 태어나는가</h2>
-    <p>두 가지 장치를 전시합니다. 하나는 <b>기계가 삼킨 과거</b>이고, 다른 하나는 <b>기계가 잘못 그은 인과의 화살표</b>입니다. 직접 조작해 보십시오.</p>
+    <p>두 가지 시뮬리이를을 전시합니다. 하나는 <b>기계가 삼킨 과거</b>이고, 다른 하나는 <b>기계가 잘못 그은 인과의 화살표</b>입니다. 직접 조작해 보십시오.</p>
   </div>
 
   <!-- 전시물 2-1 -->
@@ -146,7 +146,7 @@
       <div class="slider-panel">
         <div class="k">학습 데이터 · 과거 10년 합격자 중 남성 비율</div>
         <div class="v" id="dataVal">85<small>%</small></div>
-        <input type="range" id="ratio" min="50" max="95" value="85" step="1" aria-label="과거 합격자 중 남성 비율">
+        <input type="range" id="ratio" min="5" max="95" value="50" step="1" aria-label="과거 합격자 중 남성 비율">
         <div class="hint">손잡이를 움직여 과거 채용 기록을 바꿔 보십시오. 오른쪽에서 AI의 추천 결과가 어떻게 달라지는지 관찰할 수 있습니다.</div>
       </div>
 
@@ -273,7 +273,7 @@
 <section id="room3">
   <div class="room-head reveal">
     <span class="room-no">제 3 전시실</span>
-    <h2>처방의 방 — 무엇을 바꿀 수 있는가</h2>
+    <h2>해결의 방 — 무엇을 바꿀 수 있는가</h2>
     <p>편향은 기계의 고장이 아니라 <b>설계의 문제</b>입니다. 설계를 바꾸는 두 가지 장치를 전시합니다. 첫째, 보지 않아야 할 것을 <b>가린다</b>. 둘째, 판단한 이유를 <b>반드시 남긴다</b>. 셋째, 지원서를 <b>한 번에 놓고 비교한다</b>.</p>
   </div>
 
@@ -287,7 +287,7 @@
       <div class="resume" id="resume">
         <div class="rh"><b>지원서 #A-2291</b><span>블라인드 심사 대상</span></div>
         <div class="fld" data-f="name"><div class="fk">성명</div><div class="fv">김○○</div></div>
-        <div class="fld" data-f="gender"><div class="fk">성별</div><div class="fv">여성</div></div>
+        <div class="fld" data-f="gender"><div class="fk">성별</div><div class="fv">중성</div></div>
         <div class="fld" data-f="age"><div class="fk">생년</div><div class="fv">1994년생 (32세)</div></div>
         <div class="fld" data-f="photo"><div class="fk">사진</div><div class="fv">증명사진 첨부됨</div></div>
         <div class="fld" data-f="addr"><div class="fk">주소</div><div class="fv">경기 ○○시 ○○동</div></div>

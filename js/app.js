@@ -216,22 +216,24 @@
    }
 
   function updateSim() {
-    var p = +ratio.value, q = amplify(p);
-    var pr = Math.round(p), qr = Math.round(q);
+  var p = +ratio.value, q = amplify(p);
+  var pr = Math.round(p), qr = Math.round(q);
 
-    $('#dataVal').innerHTML = pr + '<small>%</small>';
-    $('#inM').textContent = pr + '%';
-    $('#inF').textContent = (100 - pr) + '%';
-    $('#outM').textContent = qr + '%';
-    $('#outF').textContent = (100 - qr) + '%';
-    $('#barInM').style.width = pr + '%';
-    $('#barInF').style.width = (100 - pr) + '%';
-    $('#barOutM').style.width = qr + '%';
-    $('#barOutF').style.width = (100 - qr) + '%';
+  $('#dataVal').innerHTML = pr + '<small>%</small>';
+  $('#inM').textContent = pr + '%';
+  $('#inF').textContent = (100 - pr) + '%';
+  $('#outM').textContent = qr + '%';
+  $('#outF').textContent = (100 - qr) + '%';
+  $('#barInM').style.width = pr + '%';
+  $('#barInF').style.width = (100 - pr) + '%';
+  $('#barOutM').style.width = qr + '%';
+  $('#barOutF').style.width = (100 - qr) + '%';
 
-    var inMin = 100 - pr, outMin = 100 - qr;
-    var factor = inMin > 0 ? (outMin / inMin) : 0;
-    $('#ampTag').textContent = '소수 집단 통과율 × ' + factor.toFixed(2);
+  // ▼ 수정: 남성/여성 중 실제로 50% 미만인 쪽을 소수집단으로 판정
+  var inMin  = pr < 50 ? pr : (100 - pr);
+  var outMin = pr < 50 ? qr : (100 - qr);
+  var factor = inMin > 0 ? (outMin / inMin) : 0;
+  $('#ampTag').textContent = '소수 집단 통과율 × ' + factor.toFixed(2);
 
     var t;
     if (pr <= 15) {
